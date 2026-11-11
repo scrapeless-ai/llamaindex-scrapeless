@@ -87,6 +87,8 @@ jobs:
       - name: Test the example without live APIs
         run: |
           python -m pip check
+          # NLTK rejects corpus data under the shared setup-python tool cache.
+          export NLTK_DATA="$(mktemp -d "$HOME/.llamaindex-nltk.XXXXXX")"
           pytest examples/tourism_research/test_app.py
 
   package:
