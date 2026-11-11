@@ -48,8 +48,11 @@ def check_release(
         raise ValueError("Publication must run from the approved repository.")
     if ref != f"refs/tags/v{version}":
         raise ValueError("Publication must run from the matching vVERSION tag.")
-    urls = project.get("urls", {})
-    if urls.get("Repository", "").rstrip("/") != f"https://github.com/{repository}":
+    repository_url = project.get("urls", {}).get("Repository")
+    if (
+        repository_url is not None
+        and repository_url.rstrip("/") != f"https://github.com/{repository}"
+    ):
         raise ValueError("Set project.urls.Repository to the approved GitHub repository.")
     return version
 

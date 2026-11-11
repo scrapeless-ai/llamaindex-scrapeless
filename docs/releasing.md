@@ -50,7 +50,7 @@ Registry publication requires all of the following:
 - Repository variable `RELEASE_PUBLISH_ENABLED` equals the exact string `true`. Leave it absent or `false` during review.
 - Repository variable `RELEASE_REPOSITORY` equals the approved GitHub `owner/repository`, and the workflow is running in that repository.
 - The workflow runs on `refs/tags/vVERSION`, matching `project.version` in `pyproject.toml`.
-- `project.urls.Repository` is set to the actual approved `https://github.com/owner/repository` URL. The preflight rejects a missing or mismatched URL.
+- If package metadata includes `project.urls.Repository`, it matches the approved repository URL. Use public destinations for links on the PyPI project page.
 - CI succeeds and supplies the checked artifacts from the same workflow run.
 - The selected GitHub Environment (`testpypi` or `pypi`) permits the deployment, and the registry accepts the configured Trusted Publisher identity.
 
@@ -60,7 +60,7 @@ Only the registry jobs receive `id-token: write`. They download the checked arti
 
 ## One-time external setup, after review
 
-1. Verify that `project.urls.Repository` points to the approved repository at `https://github.com/scraperapigather/llama-index-readers-scrapeless`. Add the integration documentation URL when the page is available.
+1. Review the public links in `project.urls`. Add the integration documentation URL when the page is available.
 2. Create GitHub Environments named `testpypi` and `pypi`. For a private repository, first check the plan and administrator permissions for Environments and required reviewers. Keep publication disabled until the intended approval process and tag restrictions can be applied. Environment protection is a GitHub setting, not a rule created by these YAML files.
 3. Add a Trusted Publisher separately on TestPyPI and PyPI using the approved owner, repository, workflow filename `release.yml`, and matching environment name. For a new package, use the registry's pending-publisher flow. Package name availability and ownership must be confirmed there.
 4. Set `RELEASE_REPOSITORY` to that repository. Keep `RELEASE_PUBLISH_ENABLED` disabled until publication is explicitly approved.

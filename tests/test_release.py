@@ -56,9 +56,14 @@ def test_publication_rejects_wrong_identity_or_version(change):
         check_release(PROJECT, destination="pypi", **{**APPROVED, **change})
 
 
-def test_publication_requires_the_actual_project_repository_url():
+def test_publication_allows_omitting_the_repository_link():
+    assert check_release({**PROJECT, "urls": {}}, destination="pypi", **APPROVED) == "0.1.0"
+
+
+def test_publication_rejects_a_mismatched_repository_link():
+    project = {**PROJECT, "urls": {"Repository": "https://github.com/example/other"}}
     with pytest.raises(ValueError, match="project.urls.Repository"):
-        check_release({**PROJECT, "urls": {}}, destination="pypi", **APPROVED)
+        check_release(project, destination="pypi", **APPROVED)
 
 
 @pytest.mark.parametrize("destination", ["testpypi", "pypi"])
