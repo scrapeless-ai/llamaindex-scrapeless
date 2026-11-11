@@ -1,0 +1,15 @@
+[
+  {
+    "markdown": "# Refund policy\nCompany A accepts refund requests within 30 days of purchase. Include your order ID when contacting support.",
+    "metadata": {"sourceURL": "https://example.com/refunds", "title": "Refund policy"}
+  },
+  {
+    "markdown": "# Shipping guide\nCompany A dispatches standard orders within two business days. Tracking is provided after dispatch.",
+    "metadata": {"sourceURL": "https://example.com/shipping", "title": "Shipping guide"}
+  },
+  {
+    "markdown": "# Account access\nUse the password reset link to recover access to an account. Support cannot retrieve your existing password.",
+    "metadata": {"sourceURL": "https://example.com/account", "title": "Account access"}
+  }
+]
+

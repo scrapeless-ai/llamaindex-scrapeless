@@ -1,0 +1,4 @@
+llama-index-core==0.14.25
+llama-index-retrievers-bm25==0.8.0
+llama-index-llms-openai-like==0.8.1
+markdown-it-py==4.0.0

@@ -1,0 +1,62 @@
+[build-system]
+requires = ["hatchling>=1.27"]
+build-backend = "hatchling.build"
+
+[project]
+name = "llama-index-readers-scrapeless"
+version = "0.1.0"
+description = "Scrapeless Python SDK readers for LlamaIndex"
+readme = "README.pypi.md"
+requires-python = ">=3.10"
+license = "MIT"
+license-files = ["LICENSE"]
+keywords = ["llamaindex", "scrapeless", "readers", "web-scraping", "rag"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
+dependencies = [
+    "llama-index-core>=0.14.25,<0.15",
+    "scrapeless==1.3.0",
+    "python-dotenv>=1,<2",
+    "beautifulsoup4>=4.12,<5",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8",
+    "pytest-cov>=6",
+    "ruff>=0.11",
+    "build>=1",
+    "twine>=6",
+    "packaging>=24",
+    "markdown-it-py>=4,<5",
+    "tomli>=2; python_version<'3.11'",
+]
+
+[project.urls]
+"SDK Reference" = "https://docs.scrapeless.com/en/docs/developer-tools/sdks/python-sdk/?utm_source=pypi&utm_medium=referral&utm_campaign=llamaindex-scrapeless&utm_content=package-description"
+
+[tool.hatch.build.targets.wheel]
+packages = ["llama_index"]
+
+[tool.hatch.build.targets.sdist]
+include = ["assets", "llama_index", "examples", "tests", "scripts", "docs", "README.md", "README.pypi.md", "CHANGELOG.md", "LICENSE", "pyproject.toml", ".env.example"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff]
+target-version = "py310"
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
+
