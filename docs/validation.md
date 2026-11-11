@@ -19,12 +19,15 @@ Two initial observations were resolved without changing Reader runtime code. Wit
 - Executed runtimes: Python 3.10.22, 3.11.18, 3.12.16, 3.13.11, and 3.14.9.
 - Controlled tests: 130 passed on each of the five runtimes, including 21 release-gate/archive-boundary cases. Reader package statement coverage remains 95.5%.
 - Ruff lint, formatting, and actionlint workflow syntax checks pass locally.
-- CI and manual release workflows are configured; GitHub-hosted runs have not been executed because no repository changes were pushed.
 - Release validation defaults to no upload. Registry publication requires explicit external configuration and approval; see [release operations](releasing.md).
 - The wheel and source distribution build; a fresh wheel installation and dependency check pass.
 - The extracted source distribution's offline collection and LlamaIndex retrieval commands pass.
 
 Controlled tests use the installed SDK with mocked HTTP responses. They cover null-option omission, service dispatch, completion states, malformed/failed responses, empty results, bounded polling, task resumption, result pagination, cursor restrictions, source/reference mapping, async thread delegation, and the offline indexing path. The offline example substitutes the SDK transport and exercises the normal batch Reader path.
+
+## Hosted release validation
+
+GitHub Actions runs the Reader checks on Python 3.10 through 3.14 and tests the tourism example with controlled service and model responses. The release validation builds both distribution formats and independently installs each before checking the offline collection and retrieval workflow.
 
 ## Representative live SDK checks
 
