@@ -15,8 +15,9 @@ Collect web pages, search results, structured data, and AI answers with the Scra
   <a href="https://www.linkedin.com/company/scrapeless/?utm_source=github&amp;utm_medium=referral&amp;utm_campaign=llamaindex-scrapeless&amp;utm_content=repository-readme"><img src="assets/linkedin.png" alt="Follow Scrapeless on LinkedIn" width="190" height="28" /></a>
 </p>
 
+- **Package:** [llamaindex-scrapeless 0.1.1 on PyPI](https://pypi.org/project/llamaindex-scrapeless/0.1.1/)
 - **Documentation:** [Python SDK and product inputs](https://docs.scrapeless.com/en/docs/developer-tools/sdks/python-sdk/?utm_source=github&utm_medium=referral&utm_campaign=llamaindex-scrapeless&utm_content=repository-readme)
-- **Entry point:** `from llama_index.readers.scrapeless import ScrapelessReader`
+- **Entry point:** `from llamaindex_scrapeless import ScrapelessReader`
 
 `ScrapelessReader` submits supported requests, waits for completed results, and preserves source metadata for indexing and retrieval.
 
@@ -28,10 +29,10 @@ This package is a data Reader. It does not manage datasets, snapshots, object st
 
 ### Install and configure
 
-Use Python 3.10 or later. To install the published release, run:
+Use Python 3.10 or later. Install the package from PyPI:
 
 ```bash
-python -m pip install llama-index-readers-scrapeless==0.1.0
+python -m pip install llamaindex-scrapeless==0.1.1
 ```
 
 To develop locally or run repository examples from a source checkout, enter the repository root and run:
@@ -57,7 +58,7 @@ The SDK reads `SCRAPELESS_API_KEY` and can load `.env`. Keep working credentials
 Save this as `quickstart.py` in your working directory, then run `python quickstart.py`:
 
 ```python
-from llama_index.readers.scrapeless import ScrapelessReader
+from llamaindex_scrapeless import ScrapelessReader
 
 reader = ScrapelessReader(timeout=120, request_timeout=30)
 documents = reader.load_data(
@@ -76,7 +77,7 @@ for document in documents:
 
 For this example, inspect nonempty text explaining the domain's use in documentation examples and a source URL for `example.com`. With `onlyMainContent`, the title `Example Domain` may appear only in `document.metadata["title"]`, rather than in the extracted body. A login or challenge page can contain text without being the requested page. A task ID alone is not collected content. Valid empty results return `[]`; failed tasks and malformed completed results raise errors.
 
-To save Documents and retrieve a passage from the collected page, obtain the repository source or the source distribution and run these commands from its root:
+To save Documents and retrieve a passage from the collected page, use the repository source or download the [0.1.1 source distribution](https://pypi.org/project/llamaindex-scrapeless/0.1.1/#files). Run these commands from its root:
 
 ```bash
 python examples/collect.py --url https://example.com --output outputs/documents.json
@@ -209,7 +210,7 @@ Metadata preserves known service, actor, task ID, query/prompt, locale, title, a
 `timeout`, `poll_interval`, and `request_timeout` are seconds at the Reader interface; request timeout is converted to SDK milliseconds. A deadline stops new status checks, while an in-flight request can finish later. Submissions are not automatically retried.
 
 ```python
-from llama_index.readers.scrapeless import ScrapelessTaskTimeout
+from llamaindex_scrapeless import ScrapelessTaskTimeout
 
 params = {"url": "https://example.com"}
 try:
@@ -250,7 +251,7 @@ The optional [tourism research application](examples/tourism_research/README.md)
 
 ```bash
 python -m pip install -e '.[dev]'
-pytest --cov=llama_index.readers.scrapeless --cov-report=term-missing
+pytest --cov=llamaindex_scrapeless --cov-report=term-missing
 ruff check .
 ruff format --check .
 python -m pip check

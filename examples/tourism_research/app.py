@@ -22,8 +22,8 @@ from llama_index.core import Document
 from llama_index.core.node_parser import SentenceSplitter
 from llama_index.core.tools import FunctionTool
 
-from llama_index.readers.scrapeless import ScrapelessReader
-from llama_index.readers.scrapeless.errors import (
+from llamaindex_scrapeless import ScrapelessReader
+from llamaindex_scrapeless.errors import (
     ScrapelessCrawlPageError,
     ScrapelessTaskError,
     ScrapelessTaskTimeout,
@@ -183,7 +183,7 @@ def recover_pages(
     completed_repairs: dict[str, list[Document]] | None = None,
     checkpoint_repair: Callable[[str, list[Document]], None] | None = None,
 ):
-    from llama_index.readers.scrapeless.mapping import documents as map_documents
+    from llamaindex_scrapeless.mapping import documents as map_documents
 
     requested = {normalized_url(url) for url in urls}
     failed_urls = {}

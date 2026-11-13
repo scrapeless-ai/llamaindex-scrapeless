@@ -7,7 +7,7 @@ import pytest
 from scrapeless import Scrapeless
 from scrapeless.error import ScrapelessError
 
-from llama_index.readers.scrapeless import ScrapelessReader, ScrapelessTaskError
+from llamaindex_scrapeless import ScrapelessReader, ScrapelessTaskError
 
 PAYLOAD = {
     "actor": "scraper.copilot",

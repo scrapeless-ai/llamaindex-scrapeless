@@ -4,7 +4,7 @@ from types import SimpleNamespace
 
 import pytest
 
-from llama_index.readers.scrapeless import (
+from llamaindex_scrapeless import (
     ScrapelessReader,
     ScrapelessReaderError,
     ScrapelessTaskTimeout,
@@ -35,9 +35,9 @@ def test_unlocker_acknowledgement_is_not_a_document():
 
 def test_crawl_timeout_includes_reusable_id(monkeypatch):
     clock = [0.0]
-    monkeypatch.setattr("llama_index.readers.scrapeless.base.time.monotonic", lambda: clock[0])
+    monkeypatch.setattr("llamaindex_scrapeless.base.time.monotonic", lambda: clock[0])
     monkeypatch.setattr(
-        "llama_index.readers.scrapeless.base.time.sleep",
+        "llamaindex_scrapeless.base.time.sleep",
         lambda seconds: clock.__setitem__(0, clock[0] + seconds),
     )
     service = SimpleNamespace(request=lambda *args: {"status": "scraping"})

@@ -1,6 +1,10 @@
 # Changelog
 
-## 0.1.0 (unreleased)
+## 0.1.1
+
+- Rename the distribution to `llamaindex-scrapeless` and expose `ScrapelessReader` from `llamaindex_scrapeless`.
+
+## 0.1.0
 
 - Add an official-SDK-backed LlamaIndex Reader for single-page scraping, batch scraping, Crawl, Google Search, Scraping API, Web Unlocker, and AI Scraper.
 - Check task completion, bound polling, retain task IDs for resumption, and read compatible result pagination.

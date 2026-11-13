@@ -6,12 +6,12 @@ from types import SimpleNamespace
 import pytest
 from llama_index.core import Document
 
-from llama_index.readers.scrapeless import (
+from llamaindex_scrapeless import (
     ScrapelessReader,
     ScrapelessReaderError,
     ScrapelessTaskError,
 )
-from llama_index.readers.scrapeless.mapping import documents
+from llamaindex_scrapeless.mapping import documents
 
 
 @pytest.mark.parametrize(

@@ -18,7 +18,7 @@ from urllib.parse import urlsplit
 from markdown_it import MarkdownIt
 from packaging.utils import canonicalize_name
 
-PACKAGE = "llama-index-readers-scrapeless"
+PACKAGE = "llamaindex-scrapeless"
 BLOCKED = {"internal", "Blog", "Documentation", "ChineseReview", "Review", ".git", "logs"}
 
 
@@ -139,9 +139,7 @@ def main() -> None:
             print(f"Checking isolated {label} installation", flush=True)
             run("-m", "pip", "install", "--quiet", str(artifact), cwd=work)
             imported = Path(
-                run(
-                    "-c", "import llama_index.readers.scrapeless as r; print(r.__file__)", cwd=work
-                ).strip()
+                run("-c", "import llamaindex_scrapeless as r; print(r.__file__)", cwd=work).strip()
             ).resolve()
             if not imported.is_relative_to(prefix.resolve()):
                 raise ValueError("Import came from outside the isolated installation.")

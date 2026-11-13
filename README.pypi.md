@@ -7,7 +7,7 @@ Load completed Scrapeless results as LlamaIndex `Document` objects. The Reader u
 Use Python 3.10 or later:
 
 ```bash
-python -m pip install llama-index-readers-scrapeless==0.1.0
+python -m pip install llamaindex-scrapeless==0.1.1
 ```
 
 Set `SCRAPELESS_API_KEY` to a key from your [Scrapeless dashboard](https://app.scrapeless.com/?utm_source=pypi&utm_medium=referral&utm_campaign=llamaindex-scrapeless&utm_content=package-description). On macOS or Linux:
@@ -21,7 +21,7 @@ export SCRAPELESS_API_KEY="YOUR_SCRAPELESS_API_KEY"
 Save the following as `quickstart.py` in your working directory:
 
 ```python
-from llama_index.readers.scrapeless import ScrapelessReader
+from llamaindex_scrapeless import ScrapelessReader
 
 reader = ScrapelessReader(timeout=120, request_timeout=30)
 documents = reader.load_data(
@@ -52,6 +52,6 @@ See the [Scrapeless Python SDK reference](https://docs.scrapeless.com/en/docs/de
 
 On a polling timeout or a task result error, retain the original task ID when available. Polling timeout does not cancel the remote job. Inspect the original job before deciding whether to resume it; the Reader does not automatically submit a replacement.
 
-The source distribution includes the repository examples, usage notes, and tests. Download the source archive from the project's PyPI files if you want to run those examples. The installed wheel is sufficient for the standalone quick start above.
+The [0.1.1 source distribution](https://pypi.org/project/llamaindex-scrapeless/0.1.1/#files) includes the repository examples, usage notes, and tests. The installed wheel is sufficient for the standalone quick start above.
 
 For support, contact [support@scrapeless.com](mailto:support@scrapeless.com) with the version, reproduction steps, and a sanitized error message.

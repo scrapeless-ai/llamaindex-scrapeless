@@ -16,7 +16,7 @@ try:
 except ModuleNotFoundError:  # Python 3.10
     import tomli as tomllib
 
-PACKAGE = "llama-index-readers-scrapeless"
+PACKAGE = "llamaindex-scrapeless"
 DESTINATIONS = ("validate", "testpypi", "pypi")
 
 

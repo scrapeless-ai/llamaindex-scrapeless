@@ -3,14 +3,14 @@ requires = ["hatchling>=1.27"]
 build-backend = "hatchling.build"
 
 [project]
-name = "llama-index-readers-scrapeless"
-version = "0.1.0"
-description = "Scrapeless Python SDK readers for LlamaIndex"
+name = "llamaindex-scrapeless"
+version = "0.1.1"
+description = "Scrapeless Python SDK integration for LlamaIndex"
 readme = "README.pypi.md"
 requires-python = ">=3.10"
 license = "MIT"
 license-files = ["LICENSE"]
-keywords = ["llamaindex", "scrapeless", "readers", "web-scraping", "rag"]
+keywords = ["llamaindex", "scrapeless", "web-scraping", "rag"]
 classifiers = [
     "Development Status :: 3 - Alpha",
     "Intended Audience :: Developers",
@@ -45,10 +45,10 @@ dev = [
 "SDK Reference" = "https://docs.scrapeless.com/en/docs/developer-tools/sdks/python-sdk/?utm_source=pypi&utm_medium=referral&utm_campaign=llamaindex-scrapeless&utm_content=package-description"
 
 [tool.hatch.build.targets.wheel]
-packages = ["llama_index"]
+packages = ["llamaindex_scrapeless"]
 
 [tool.hatch.build.targets.sdist]
-include = ["assets", "llama_index", "examples", "tests", "scripts", "docs", "README.md", "README.pypi.md", "CHANGELOG.md", "LICENSE", "pyproject.toml", ".env.example"]
+include = ["assets", "llamaindex_scrapeless", "examples", "tests", "scripts", "docs", "README.md", "README.pypi.md", "CHANGELOG.md", "LICENSE", "pyproject.toml", ".env.example"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

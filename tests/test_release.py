@@ -19,7 +19,7 @@ check_release = load_script("release_checks").check_release
 verify_dist = load_script("verify_dist")
 check_members = verify_dist.check_members
 PROJECT = {
-    "name": "llama-index-readers-scrapeless",
+    "name": "llamaindex-scrapeless",
     "version": "0.1.0",
     "urls": {"Repository": "https://github.com/example/integration"},
 }

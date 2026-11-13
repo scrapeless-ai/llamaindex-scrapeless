@@ -7,12 +7,12 @@ from types import SimpleNamespace
 import pytest
 from scrapeless import Scrapeless
 
-from llama_index.readers.scrapeless import (
+from llamaindex_scrapeless import (
     ScrapelessReader,
     ScrapelessReaderError,
     ScrapelessTaskTimeout,
 )
-from llama_index.readers.scrapeless.mapping import documents
+from llamaindex_scrapeless.mapping import documents
 
 
 @pytest.fixture
@@ -295,9 +295,9 @@ def test_malformed_or_failed_tasks_are_not_documents(reader, http, service, resu
 def test_timeout_then_resume_does_not_submit_again(client, http, monkeypatch):
     queue, calls = http
     clock = [0.0]
-    monkeypatch.setattr("llama_index.readers.scrapeless.base.time.monotonic", lambda: clock[0])
+    monkeypatch.setattr("llamaindex_scrapeless.base.time.monotonic", lambda: clock[0])
     monkeypatch.setattr(
-        "llama_index.readers.scrapeless.base.time.sleep",
+        "llamaindex_scrapeless.base.time.sleep",
         lambda seconds: clock.__setitem__(0, clock[0] + seconds),
     )
     reader = ScrapelessReader(client=client, timeout=1, poll_interval=1)

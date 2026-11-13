@@ -4,7 +4,7 @@ import json
 
 import pytest
 
-from llama_index.readers.scrapeless.mapping import documents
+from llamaindex_scrapeless.mapping import documents
 
 
 def test_search_relative_link_uses_absolute_redirect():

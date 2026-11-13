@@ -65,7 +65,7 @@ jobs:
       - name: Test without live service credentials
         run: |
           python -m pip check
-          pytest --cov=llama_index.readers.scrapeless --cov-report=term-missing
+          pytest --cov=llamaindex_scrapeless --cov-report=term-missing
 
   tourism:
     name: Tourism example tests

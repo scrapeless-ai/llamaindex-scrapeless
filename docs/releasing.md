@@ -21,7 +21,7 @@ For local checks, install the development dependencies and run:
 python -m pip install -e '.[dev]'
 ruff check .
 ruff format --check .
-pytest --cov=llama_index.readers.scrapeless --cov-report=term-missing
+pytest --cov=llamaindex_scrapeless --cov-report=term-missing
 python -m pip check
 python scripts/release_checks.py
 python -m build

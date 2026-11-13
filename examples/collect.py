@@ -5,7 +5,7 @@ import json
 from pathlib import Path
 from types import SimpleNamespace
 
-from llama_index.readers.scrapeless import ScrapelessReader
+from llamaindex_scrapeless import ScrapelessReader
 
 
 def main() -> None:

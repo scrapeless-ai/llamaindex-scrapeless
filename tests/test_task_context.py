@@ -5,7 +5,7 @@ from unittest.mock import Mock
 
 import pytest
 
-from llama_index.readers.scrapeless import ScrapelessReader, ScrapelessReaderError
+from llamaindex_scrapeless import ScrapelessReader, ScrapelessReaderError
 
 
 @pytest.mark.parametrize(
