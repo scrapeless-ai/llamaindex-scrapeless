@@ -1,6 +1,6 @@
 # CI and release operations
 
-The workflows belong at the root of the integration repository. Start from the reviewed repository archive in an independent directory. Verify that `git rev-parse --show-toplevel` resolves to that source root before staging files. Use the selected repository contents, not the containing delivery workspace. Standalone Doc/Blog drafts, review-only materials, local previews, and internal diagnostics are excluded from the repository and distributions.
+This guide covers CI and future package releases for `llamaindex-scrapeless`. Run the commands from the repository root.
 
 ## Continuous integration
 
@@ -58,15 +58,15 @@ The preflight job fails on an unconfigured or mismatched publication request; it
 
 Only the registry jobs receive `id-token: write`. They download the checked artifacts without checking out or executing repository scripts. Publishing uses OIDC Trusted Publishing, without storing a PyPI API token in this repository.
 
-## One-time external setup, after review
+## Configure publishing and validate a release
 
 1. Review the public links in `project.urls`. Add the integration documentation URL when the page is available.
-2. Create GitHub Environments named `testpypi` and `pypi`. For a private repository, first check the plan and administrator permissions for Environments and required reviewers. Keep publication disabled until the intended approval process and tag restrictions can be applied. Environment protection is a GitHub setting, not a rule created by these YAML files.
+2. Create GitHub Environments named `testpypi` and `pypi`. Configure reviewers and tag restrictions in the GitHub Environment settings before enabling publication.
 3. Add a Trusted Publisher separately on TestPyPI and PyPI using the approved owner, repository, workflow filename `release.yml`, and matching environment name. For a new package, use the registry's pending-publisher flow. Package name availability and ownership must be confirmed there.
 4. Set `RELEASE_REPOSITORY` to that repository. Keep `RELEASE_PUBLISH_ENABLED` disabled until publication is explicitly approved.
 5. After approval, create the reviewed version tag and run `validate` at that tag. Verify hosted checks and artifacts before explicitly selecting a publishing destination.
 
-A successful local check does not establish that GitHub-hosted CI has run, that Environment protection exists, or that a Trusted Publisher is configured. Publishing to TestPyPI is also an external publication and is not part of validation mode. The public registry description comes from `README.pypi.md`; keep it usable without private repository access and verify the actual rendered page after an authorized upload.
+Check the GitHub Actions run and the Environment and Trusted Publisher settings when validating a release. After an upload, verify the rendered project page and install the published version from the registry. PyPI uses `README.pypi.md` for the project description.
 
 ## References
 

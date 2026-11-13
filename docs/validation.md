@@ -1,8 +1,8 @@
 # Validation scope
 
-This is a local release candidate, not a published package or an accepted upstream listing. The accepted integration scope is the seven documented data-service routes below, with representative successful live SDK checks. The live service results below are retained from the Reader baseline. The release review uses controlled regressions for the task-context, structured-mapping, application recovery, and package-description changes.
+Scrapeless publishes `llamaindex-scrapeless` on PyPI. Version 0.1.1 provides the seven data-service routes below. The live service results come from the Reader baseline. The 0.1.1 checks cover task recovery, structured result mapping, application recovery, and packaging with controlled responses. See the [PyPI release](https://pypi.org/project/llamaindex-scrapeless/0.1.1/).
 
-Reader acceptance excludes storage services, snapshot APIs, vector databases, and generative/Agent capabilities. The separate tourism application has its own controlled CI job. The collector's optional JSON output and local retrieval example remain reproducible usage examples. Acceptance covers the Reader, mapping/error behavior, source installation, package distributions, and local workflow validation; hosted CI and registry publication remain separate.
+The Reader loads data as LlamaIndex Documents. The collector and retrieval examples demonstrate local JSON output and retrieval. The separate tourism application has a controlled CI job for its research workflow.
 
 ## Retained Reader baseline
 
@@ -27,7 +27,7 @@ Controlled tests use the installed SDK with mocked HTTP responses. They cover nu
 
 ## Hosted release validation
 
-GitHub Actions runs the Reader checks on Python 3.10 through 3.14 and tests the tourism example with controlled service and model responses. The release validation builds both distribution formats and independently installs each before checking the offline collection and retrieval workflow.
+The 0.1.1 GitHub Actions run passed on Python 3.10 through 3.14 and included the tourism example with controlled service and model responses. CI built and installed both distribution formats independently, then checked the offline collection and retrieval workflow.
 
 ## Representative live SDK checks
 

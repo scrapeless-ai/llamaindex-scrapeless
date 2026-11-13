@@ -265,7 +265,7 @@ Start with an empty `dist/`. The Reader suite runs on Python 3.10-3.14 and drive
 
 To run the separate [tourism application tests](examples/tourism_research/README.md), install the example requirements first. Those tests exercise partial-repair resumption, concurrent output access, source coverage, and report validation.
 
-CI runs offline checks, validates workflows, and builds and independently installs both distributions. Manual release defaults to `validate`. Hosted CI, the real repository URL, registry ownership, GitHub Environments, and Trusted Publisher configuration require separate setup. See [release operations](docs/releasing.md) and [CHANGELOG](CHANGELOG.md).
+GitHub Actions passed the 0.1.1 checks on Python 3.10 through 3.14, including the tourism example and separate installation checks for both distributions. The manual release workflow defaults to `validate`. See [release operations](docs/releasing.md) for future publishing setup and [CHANGELOG](CHANGELOG.md) for version history.
 
 ## Scope and limitations
 
