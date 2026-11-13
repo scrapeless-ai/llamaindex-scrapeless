@@ -2,7 +2,7 @@
   <a href="https://app.scrapeless.com/passport/register?utm_source=github&amp;utm_medium=referral&amp;utm_campaign=llamaindex-scrapeless&amp;utm_content=repository-readme"><img src="assets/llamaindex-banner.png" alt="Scrapeless Reader for LlamaIndex: web data and AI answers as Documents." width="100%" /></a>
 </p>
 
-# Scrapeless + LlamaIndex
+# LlamaIndex + Scrapeless
 
 Collect web pages, search results, structured data, and AI answers with the Scrapeless Python SDK, then load them into LlamaIndex as `Document` objects.
 
